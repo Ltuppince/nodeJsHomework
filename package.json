@@ -1,0 +1,24 @@
+{
+  "name": "nodeJsHomework",
+  "version": "1.0.0",
+  "description": "Node Homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ltuppince/nodeJsHomework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ltuppince/nodeJsHomework/issues"
+  },
+  "homepage": "https://github.com/Ltuppince/nodeJsHomework#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "puppeteer": "^2.0.0"
+  }
+}
