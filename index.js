@@ -3,7 +3,8 @@ const puppeteer = require('puppeteer');
 // file system node js module.
 const fs = require('fs'); 
 const axios = require("axios");
-
+const inquirer = require("inquirer");
+const generateHtml = require ("./generateHtml.Js")
 // axios
 //   .get("https://www.omdbapi.com/?t=The%20Matrix&apikey=trilogy")
 //   .then(function(res) {
@@ -11,49 +12,51 @@ const axios = require("axios");
 //   });
 
 
-(async function() {
-    try {
-        // launch puppeteer API
-		const browser = await puppeteer.launch(); 
-        const page = await browser.newPage();
-        const htmlContent = // defines html/css content
-            `<body>
-<style>
-h1 {
-    background-color: green;
-}
-div {
-    background-color: lightblue;
-}
-p {
-    background-color: yellow;
-}
-</style>
-<h1>CSS background-color example!</h1>
-<div>
-This is a text inside a div element.
-<p>This paragraph has its own background color.</p>
-We are still in the div element.
-</div>
-
-  </body>`;
-
-        await page.setContent(htmlContent);
-
-        await page.emulateMedia('screen');
-        await page.pdf({
-            // name of your pdf file in directory
-			path: 'testpdf.pdf', 
-            //  specifies the format
-			format: 'A4', 
-            // print background property
-			printBackground: true 
-        });
-        // console message when conversion  is complete!
-		console.log('done'); 
-        await browser.close();
-        process.exit();
-    } catch (e) {
-        console.log('our error', e);
+const questions = [
+    {
+        type: "input",
+        name: "github",
+        message: "What is your GitHub username?"
+    },
+    {
+        type: "list",
+        name: "color",
+        message: "What is your favorite color?",
+        choices: ["red", "blue", "green", "pink"]
     }
-})();
+]
+
+
+function init(){
+    inquirer.prompt(questions)
+    .then(console.log)
+    
+}
+
+init()
+
+inquirer
+  .prompt({
+    message: "Enter your GitHub username:",
+    name: "username"
+  })
+  .then(function({ username }) {
+    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+
+    axios.get(queryUrl).then(function(res) {
+      const repoNames = res.data.map(function(repo) {
+        return repo.name;
+      });
+
+      const repoNamesStr = repoNames.join("\n");
+
+      fs.writeFile("repos.txt", repoNamesStr, function(err) {
+        if (err) {
+          throw err;
+        }
+
+        console.log(`Saved ${repoNames.length} repos`);
+      });
+    });
+  });
+

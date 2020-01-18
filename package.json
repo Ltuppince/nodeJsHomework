@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Ltuppince/nodeJsHomework#readme",
   "dependencies": {
     "axios": "^0.19.1",
+    "inquirer": "^7.0.3",
     "puppeteer": "^2.0.0"
   }
 }
