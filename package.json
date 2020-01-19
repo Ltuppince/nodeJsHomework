@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Ltuppince/nodeJsHomework#readme",
   "dependencies": {
     "axios": "^0.19.1",
+    "electron-html-to": "^2.6.0",
+    "electron-prebuilt": "^1.4.13",
     "inquirer": "^7.0.3",
     "puppeteer": "^2.0.0"
   }
