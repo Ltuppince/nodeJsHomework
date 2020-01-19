@@ -96,7 +96,7 @@ function init(){
     
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <h3>GitHub Stars:
+                    <h3>GitHub Followers:
                         <span id="followers">${res.data.followers}</span>
                     </h3>
                 </div>
@@ -109,6 +109,11 @@ function init(){
                 <div class="col-xs-12 col-md-6">
                     <h3>Bio:
                         <span id="bio">${res.data.bio}</span>
+                    </h3>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <h3>GitHub Stars:
+                        <span id="githubStars">null</span>
                     </h3>
                 </div>
             </div>
@@ -130,9 +135,29 @@ function init(){
             const writeFileAsync = util.promisify(fs.writeFile)
             writeFileAsync(path.join(process.cwd(), "index.html"), html)
                 .then((htmlFile)=>{
-                    //Do PDF conversion here
-                })
-        })         
+                    const puppeteer = require('puppeteer');
+ 
+                    (async () => {
+                    const browser = await puppeteer.launch();
+                    const page = await browser.newPage();
+                    await page.goto('https://example.com');
+                    
+                    // Get the "viewport" of the page, as reported by the page.
+                    const dimensions = await page.evaluate(() => {
+                        return {
+                        width: document.documentElement.clientWidth,
+                        height: document.documentElement.clientHeight,
+                        deviceScaleFactor: window.devicePixelRatio
+                        };
+                    });
+                    
+                    console.log('Dimensions:', dimensions);
+                    
+                    await browser.close();
+                    })();
+                                        //Do PDF conversion here
+             })
+ })         
         /**
          * TASKS
          *    - make axios request to get user data (asynchronous)
