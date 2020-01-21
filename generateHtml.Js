@@ -38,12 +38,12 @@ function generateHtml(data){
             //     // print background property
             //     printBackground: true 
             // });
-            // // console message when conversion  is complete!
-            // console.log('done'); 
-            // await browser.close();
-            // process.exit();
+            // console message when conversion  is complete!
+    //         console.log('done'); 
+    //         await browser.close();
+    //         process.exit();
   
-    return htmlContent
+    // return htmlContent
 }
 //This will allow me to use the function in other files.
 module.exports=generateHtml

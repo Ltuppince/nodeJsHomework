@@ -157,16 +157,28 @@ function init(){
                     })();
                                         //Do PDF conversion here
              })
-             async function printPDF() {
-                const browser = await puppeteer.launch({ headless: true });
-                const page = await browser.newPage();
-                await page.goto('file:///Users/lorenzot.tuppince/git/nodeJsHomework/index.html', {waitUntil: 'networkidle0'});
-                const pdf = await page.pdf({ format: 'A4' });
+            //  async function printPDF() {
+            //     const browser = await puppeteer.launch({ headless: true });
+            //     const page = await browser.newPage();
+            //     await page.goto('file:///Users/lorenzot.tuppince/git/nodeJsHomework/index.html', {waitUntil: 'networkidle0'});
+            //     const pdf = await page.pdf({ format: 'A4' });
                
+            //     await browser.close();
+            //     return pdf
+            //   }
+            //   printPDF();
+            (async () => {
+                const browser = await puppeteer.launch();
+                const page = await browser.newPage();
+              
+                // Navigates to the project README file
+                await page.goto('file:///Users/lorenzot.tuppince/git/nodeJsHomework/index.html');
+              
+                // Generates a PDF from the page content
+                await page.pdf({ path: 'overview.pdf' });
+              
                 await browser.close();
-                return pdf
-              }
-              printPDF();
+              })();
  })         
         /**
          * TASKS
