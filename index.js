@@ -58,80 +58,80 @@ function init(){
 
             const html = `
             <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
-    <body>
-        <div class="jumbotron">
-            <img src="${res.data.avatar_url}" class="rounded-circle mx-auto d-block mb-5" alt="userImage">
-                <h1 class="display-4">${res.data.login}</h1>
-                <h1 class="display-4">${res.data.html_url}</h1>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <title>Document</title>
+        </head>
+        <body>
+            <body>
+                <div class="jumbotron">
+                    <img src="${res.data.avatar_url}" class="rounded-circle mx-auto d-block mb-5" alt="userImage">
+                        <h1 class="display-4">${res.data.login}</h1>
+                        <h1 class="display-4">${res.data.html_url}</h1>
 
-        <div class="container">
-    
-            <div class="row"> 
-                <div class="col-xs-12 col-md-6">
-                    <h3>Public Repositories:
-                        <span id="repos">${res.data.public_repos}</span>
-                    </h3>
+                <div class="container">
+            
+                    <div class="row"> 
+                        <div class="col-xs-12 col-md-6">
+                            <h3>Public Repositories:
+                                <span id="repos">${res.data.public_repos}</span>
+                            </h3>
+                        </div>
+            
+                        <div class="col-xs-12 col-md-6">
+                            <h3>Location:
+                                <span id="location">${res.data.location}</span>
+                            </h3>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <h3>Blog:
+                                <span id="blog">${res.data.blog}</span>
+                            </h3>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <h3>GitHub Followers:
+                                <span id="followers">${res.data.followers}</span>
+                            </h3>
+                        </div>
+            
+                        <div class="col-xs-12 col-md-6">
+                            <h3>Following:
+                                <span id="following">${res.data.following}</span>
+                            </h3>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <h3>Bio:
+                                <span id="bio">${res.data.bio}</span>
+                            </h3>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <h3>GitHub Stars:
+                                <span id="githubStars">null</span>
+                            </h3>
+                        </div>
+                    </div>
+            
                 </div>
-    
-                <div class="col-xs-12 col-md-6">
-                    <h3>Location:
-                        <span id="location">${res.data.location}</span>
-                    </h3>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <h3>Blog:
-                        <span id="blog">${res.data.blog}</span>
-                    </h3>
-                </div>
-            </div>
-    
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <h3>GitHub Followers:
-                        <span id="followers">${res.data.followers}</span>
-                    </h3>
-                </div>
-    
-                <div class="col-xs-12 col-md-6">
-                    <h3>Following:
-                        <span id="following">${res.data.following}</span>
-                    </h3>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <h3>Bio:
-                        <span id="bio">${res.data.bio}</span>
-                    </h3>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <h3>GitHub Stars:
-                        <span id="githubStars">null</span>
-                    </h3>
-                </div>
-            </div>
-    
-        </div>
-    
-    
-    </body>
-    
-    </html>
-</body>   
+            
+            
+            </body>
+            
+            </html>
+        </body>   
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
-</body>
-</html>
-            `
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
+        </body>
+        </html>
+                    `
             const writeFileAsync = util.promisify(fs.writeFile)
             writeFileAsync(path.join(process.cwd(), "index.html"), html)
                 .then((htmlFile)=>{
@@ -157,6 +157,16 @@ function init(){
                     })();
                                         //Do PDF conversion here
              })
+             async function printPDF() {
+                const browser = await puppeteer.launch({ headless: true });
+                const page = await browser.newPage();
+                await page.goto('file:///Users/lorenzot.tuppince/git/nodeJsHomework/index.html', {waitUntil: 'networkidle0'});
+                const pdf = await page.pdf({ format: 'A4' });
+               
+                await browser.close();
+                return pdf
+              }
+              printPDF();
  })         
         /**
          * TASKS
