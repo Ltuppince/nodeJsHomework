@@ -167,15 +167,29 @@ function init(){
             //     return pdf
             //   }
             //   printPDF();
-            (async () => {
+            // (async () => {
+            //     const browser = await puppeteer.launch();
+            //     const page = await browser.newPage();
+              
+            //     // Navigates to the project README file
+            //     await page.goto('file://Users/lorenzot.tuppince/git/nodeJsHomework/index.html');
+              
+            //     // Generates a PDF from the page content
+            //     await page.pdf({ path: 'overview.pdf' });
+              
+            //     await browser.close();
+            //   })();
+
+              (async() => {
                 const browser = await puppeteer.launch();
                 const page = await browser.newPage();
-              
-                // Navigates to the project README file
-                await page.goto('file:///Users/lorenzot.tuppince/git/nodeJsHomework/index.html');
-              
-                // Generates a PDF from the page content
-                await page.pdf({ path: 'overview.pdf' });
+                await page.goto('https://news.ycombinator.com', {waitUntil: 'networkidle2'});
+                // page.pdf() is currently supported only in headless mode.
+                // @see https://bugs.chromium.org/p/chromium/issues/detail?id=753118
+                await page.pdf({
+                  path: 'hn.pdf',
+                  format: 'letter'
+                });
               
                 await browser.close();
               })();
